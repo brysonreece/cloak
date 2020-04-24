@@ -1,0 +1,112 @@
+{{>begin}}
+  <h1>Cloak</h1>
+  <p>generate a livestream overlay on a whim</p>
+
+  </br>
+
+  <h3>Instructions</h3>
+  <p>Make a GET request to the following pages with the url parameters listed below.</p>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><pre>/bold</pre></td>
+        <td><a href="https://cloak.bryson.cc/bold?text=this%20is%20an%20example%20message&bg=dark-orchid&scale=8&align=right&margin=8&color=white&weight=bold">example</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  </br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Parameter</th>
+        <th>Options</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <pre>align</pre>
+        </td>
+        <td class="input">
+          <ul>
+            <li>left</li>
+            <li>right</li>
+            <li>center</li>
+          </ul>
+        </td>
+        <td>right</td>
+        <td>Text alignment.</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>bg</pre>
+        </td>
+        <td class="input">
+          <p>Any named CSS color</p>
+        </td>
+        <td></td>
+        <td>Body background; A list of these colors can be found <a href="https://gist.github.com/bobspace/2712980">here</a>. <i>Names must be kebab case.</i></td>
+      </tr>
+      <tr>
+        <td>
+          <pre>color</pre>
+        </td>
+        <td class="input">
+          <p>Any named CSS color</p>
+        </td>
+        <td>black</td>
+        <td>Text color; A list of these colors can be found <a href="https://gist.github.com/bobspace/2712980">here</a>. <i>Names must be kebab case.</i></td>
+      </tr>
+      <tr>
+        <td>
+          <pre>margin</pre>
+        </td>
+        <td class="input">
+          <p>String</p>
+        </td>
+        <td>4</td>
+        <td>Rem units to offset the text by the edge of the screen.</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>scale</pre>
+        </td>
+        <td class="input">
+          <p>Numeric</p>
+        </td>
+        <td>8</td>
+        <td>Vw units to responsively display the text in.</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>text</pre>
+        </td>
+        <td class="input">
+          <p>String</p>
+        </td>
+        <td></td>
+        <td>Text to display</td>
+      </tr>
+      <tr>
+        <td>
+          <pre>weight</pre>
+        </td>
+        <td class="input">
+          <ul>
+            <li>bold</li>
+            <li>bolder</li>
+            <li>lighter</li>
+            <li>normal</li>
+          </ul>
+        </td>
+        <td>normal</td>
+        <td>Font weight.</td>
+      </tr>
+    </tbody>
+  </table>
+{{>end}}
