@@ -29,46 +29,44 @@
 
   <body>
       <h1>{{ text }}</h1>
-      {{#shouldFs}}
-        <script>
-          document.addEventListener('DOMContentLoaded', () => {
-            'use strict';
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          'use strict';
 
-            let buffer = [];
-            let open = false;
-            let lastKeyTime = Date.now();
+          let buffer = [];
+          let open = false;
+          let lastKeyTime = Date.now();
 
-            document.addEventListener('keydown', event => {
-              const isFullscreen = document.fullscreenElement != null;
-              const toggleKey = 32; // Space
-              const eventKey = event.keyCode;
+          document.addEventListener('keydown', event => {
+            const isFullscreen = document.fullscreenElement != null;
+            const toggleKey = 32; // Space
+            const eventKey = event.keyCode;
 
-              // we are only interested in alphanumeric keys
-              if (eventKey !== toggleKey) return;
+            // we are only interested in alphanumeric keys
+            if (eventKey !== toggleKey) return;
 
-              const currentTime = Date.now();
+            const currentTime = Date.now();
 
-              if (currentTime - lastKeyTime > 1000) {
-                buffer = [];
+            if (currentTime - lastKeyTime > 1000) {
+              buffer = [];
+            }
+
+            buffer.push(eventKey);
+            lastKeyTime = currentTime;
+
+            if (buffer.length > 1) {
+              if (isFullscreen) {
+                document.exitFullscreen();
+              }
+              else {
+                document.documentElement.requestFullscreen();
               }
 
-              buffer.push(eventKey);
-              lastKeyTime = currentTime;
-
-              if (buffer.length > 1) {
-                if (isFullscreen) {
-                  document.exitFullscreen();
-                }
-                else {
-                  document.documentElement.requestFullscreen();
-                }
-
-                buffer = [];
-              }
-            });
+              buffer = [];
+            }
           });
-        </script>
-      {{/shouldFs}}
+        });
+      </script>
   </body>
 </html>
 

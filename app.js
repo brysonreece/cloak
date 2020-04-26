@@ -19,7 +19,6 @@ router.get('/', rules, function(req, res, next) {
   // if we have arguments, make an overlay
   if (Object.keys(data).length > 0) {
     res.render('overlay', {
-      shouldFs:      data.fullscreen ? data.fullscreen : false,
       title:         'Cloak // livestream overlays on a whim',
       text:          data.text,
       textSize:      data.scale > 0 ? data.scale : 8,
