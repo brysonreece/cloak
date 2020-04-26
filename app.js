@@ -4,10 +4,39 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mustacheExpress = require('mustache-express');
-
-var router = require('./routes');
+var matchedData = require('express-validator').matchedData;
+var rules = require('./config/rules');
+var colors = require('./config/colors');
 
 var app = express();
+var router = express.Router();
+
+router.get('/', rules, function(req, res, next) {
+  const data = matchedData(req, {
+      locations:     ['query']
+  });
+
+  // if we have arguments, make an overlay
+  if (Object.keys(data).length > 0) {
+    res.render('overlay', {
+      shouldFs:      data.fullscreen ? data.fullscreen : false,
+      title:         'Cloak // livestream overlays on a whim',
+      text:          data.text,
+      textSize:      data.scale > 0 ? data.scale : 8,
+      textColor:     data.color ? data.color : 'black',
+      textAlignment: data.align ? data.align : 'right',
+      textWeight:    data.weight ? data.weight : 'normal',
+      bg:            data.bg ? colors[data.bg] : null,
+      margin:        data.margin ? data.margin : 4,
+    });
+  }
+  else {
+    // no args, welcome to the app dude!
+    res.render('index', {
+      title:         'Cloak',
+    });
+  }
+});
 
 // view engine setup
 app.engine('mst', mustacheExpress());

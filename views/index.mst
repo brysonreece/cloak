@@ -1,5 +1,5 @@
 {{>begin}}
-  <h1>Cloak</h1>
+  <h1>{{ title }}</h1>
   <p>generate a livestream overlay on a whim</p>
 
   </br>
@@ -7,20 +7,22 @@
   <h3>Instructions</h3>
   <p>Make a GET request to the following pages with the url parameters listed below.</p>
 
-  <table>
-    <tbody>
-      <tr>
-        <td><pre>/bold</pre></td>
-        <td><a href="https://cloak.bryson.cc/bold?text=this%20is%20an%20example%20message&bg=dark-orchid&scale=8&align=right&margin=8&color=white&weight=bold">example</a></td>
-      </tr>
-    </tbody>
-  </table>
+  </br>
+
+  <a href="/?text=this%20is%20an%20example%20message&bg=dark-orchid&scale=8&align=right&margin=8&color=white&weight=bold">
+    check out an example
+  </a>
+
+  </br>
+  </br>
+
+  <p italic>You can also toggle fullscreen functionality by double-tapping your space bar when viewing an overlay.</p>
 
   </br>
 
   <table>
     <thead>
-      <tr>
+      <tr align="left">
         <th>Parameter</th>
         <th>Options</th>
         <th>Default</th>
@@ -32,7 +34,7 @@
         <td>
           <pre>align</pre>
         </td>
-        <td class="input">
+        <td>
           <ul>
             <li>left</li>
             <li>right</li>
@@ -46,7 +48,7 @@
         <td>
           <pre>bg</pre>
         </td>
-        <td class="input">
+        <td>
           <p>Any named CSS color</p>
         </td>
         <td></td>
@@ -56,7 +58,7 @@
         <td>
           <pre>color</pre>
         </td>
-        <td class="input">
+        <td>
           <p>Any named CSS color</p>
         </td>
         <td>black</td>
@@ -66,7 +68,7 @@
         <td>
           <pre>margin</pre>
         </td>
-        <td class="input">
+        <td>
           <p>String</p>
         </td>
         <td>4</td>
@@ -76,7 +78,7 @@
         <td>
           <pre>scale</pre>
         </td>
-        <td class="input">
+        <td>
           <p>Numeric</p>
         </td>
         <td>8</td>
@@ -86,17 +88,17 @@
         <td>
           <pre>text</pre>
         </td>
-        <td class="input">
+        <td>
           <p>String</p>
         </td>
         <td></td>
-        <td>Text to display</td>
+        <td>Text to display.</td>
       </tr>
       <tr>
         <td>
           <pre>weight</pre>
         </td>
-        <td class="input">
+        <td>
           <ul>
             <li>bold</li>
             <li>bolder</li>
