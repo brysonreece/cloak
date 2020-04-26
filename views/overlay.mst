@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+      <title>{{ title }}</title>
+      <link rel="stylesheet" href="/css/reset.css">
+      <link rel="stylesheet" href="/css/style.css">
+      <style>
+        body {
+          {{#bg}}background-color: {{ bg }}; {{/bg}}
+          {{#textAlignment}}text-align: {{ textAlignment }}; {{/textAlignment}}
+        }
+
+        h1 {
+          {{#textWeight}}font-weight: {{ textWeight }}; {{/textWeight}}
+          {{#textSize}}font-size: {{ textSize }}vw; {{/textSize}}
+          {{#textColor}}color: {{ textColor }}; {{/textColor}}
+          position: fixed;
+          bottom: 0;
+
+          {{#margin}}
+            margin: {{ margin }}rem;
+          {{/margin}}
+          {{^margin}}
+            margin:  0.25rem;
+          {{/margin}}
+        }
+      </style>
+  </head>
+
+  <body>
+      <h1>{{ text }}</h1>
+      {{#shouldFs}}
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+            'use strict';
+
+            let buffer = [];
+            let open = false;
+            let lastKeyTime = Date.now();
+
+            document.addEventListener('keydown', event => {
+              const isFullscreen = document.fullscreenElement != null;
+              const toggleKey = 32; // Space
+              const eventKey = event.keyCode;
+
+              // we are only interested in alphanumeric keys
+              if (eventKey !== toggleKey) return;
+
+              const currentTime = Date.now();
+
+              if (currentTime - lastKeyTime > 1000) {
+                buffer = [];
+              }
+
+              buffer.push(eventKey);
+              lastKeyTime = currentTime;
+
+              if (buffer.length > 1) {
+                if (isFullscreen) {
+                  document.exitFullscreen();
+                }
+                else {
+                  document.documentElement.requestFullscreen();
+                }
+
+                buffer = [];
+              }
+            });
+          });
+        </script>
+      {{/shouldFs}}
+  </body>
+</html>
+
