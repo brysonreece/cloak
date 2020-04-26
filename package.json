@@ -2,7 +2,11 @@
   "name": "cloak.bryson.cc",
   "version": "1.0.0",
   "description": "Generate livestream overlays on a whim!",
-  "author": "Bryson Reece <hey@bryson.cc>",
+  "author": {
+    "name" : "Bryson Reece",
+    "email" : "hey@bryson.cc",
+    "url" : "https://bryson.cc/"
+  },
   "private": true,
   "license": "MIT",
   "homepage": "https://github.com/brysonreece/cloak#readme",
