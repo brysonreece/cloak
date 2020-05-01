@@ -86,10 +86,6 @@ To modify the PM2 application parameters, you can edit the configuration options
 
 To extend the overlay options available within your application, you can edit `config/rules.js` and insert your own [**express-validation** options](https://express-validator.github.io/docs/index.html).
 
-```sh
-pm2 start ecosystem.config.js
-```
-
 ---
 
 ## ✏️ Author
