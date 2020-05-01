@@ -57,7 +57,7 @@ Similarly, if you want to run the application in **production** mode, you can om
 ```sh
 npm run serve
 ```
-This will again instruct the Node to initialize the project using port `3000`,however debugging is disabled.
+This will again instruct the Node to initialize the project using port `3000`, however debugging is disabled.
 
 ### Clustering / Load Balancing
 Using [PM2](https://pm2.keymetrics.io/), Cloak can easily be scaled to any number of load-balanced processes auto-magic-ly by utilizing the information in our `ecosystem.config.js` file.
